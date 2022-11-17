@@ -1,0 +1,13 @@
+create or replace procedure question3
+ is
+ cursor c1 is select * from part;
+ emp c1%rowtype;
+ begin
+ open c1;
+ loop
+ fetch c1 into emp;
+ if emp.in_stock<16 then
+ update part set part_price=250;
+ end if;
+ end loop;
+ end;
